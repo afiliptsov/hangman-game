@@ -7,7 +7,8 @@ const massive = require("massive");
 const axios = require("axios");
 const morgan = require("morgan");
 
-const { startGame } = require(`${__dirname}/controllers/gameCtrl`);
+const { startGame } = require(`${__dirname}/controllers/startGameCtrl`);
+const { guessLetter } = require(`${__dirname}/controllers/gameCtrl`);
 
 const port = process.env.port || 3033;
 
@@ -26,6 +27,7 @@ app.use(cors());
 
 // Initial game logic on Server Side.
 app.post("/api/game", startGame);
+app.post("/api/letter", guessLetter);
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../build/index.html"));

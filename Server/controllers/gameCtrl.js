@@ -1,34 +1,22 @@
-const axios = require("axios");
+const { wordScore } = require(`${__dirname}/initialState`);
 
-//16100 amount of words in multiple difficulty level (1-10)
+let { initialWord, totalLive, lost, won } = wordScore;
 
-let correctWord = "";
-
-const startGame = async (req, res) => {
-  let wordsArray = [];
-  console.log(req.body);
-  await axios
-    .get(
-      `http://app.linkedin-reach.io/words?difficulty=${
-        req.body.difficulty
-      }&start=${getRandomNumber(1, 16100)}&count=200`
-    )
-    .then(res => {
-      console.log(res.data), (wordsArray = res.data.split("\n"));
-    });
-  correctWord = selectRandom(wordsArray);
-  res.status(200).json(correctWord);
-};
-
-let selectRandom = arr => {
-  var rand = arr[Math.floor(Math.random() * arr.length)];
-  return rand;
-};
-
-let getRandomNumber = (start, end) => {
-  let number = Math.floor(Math.random() * end) + start;
+const guessLetter = async (req, res) => {
+  console.log(req.body.letter);
+  if (!initialWord.includes(req.body.letter)) {
+    if (wordScore.totalLive === 1) {
+      wordScore.lost = true;
+      res.status(200).json({
+        lost: wordScore.lost,
+        initialWord: wordScore.initialWord
+      });
+    }
+    wordScore.totalLive -= 1;
+    res.status(200).json({ live: wordScore.totalLive, guessed: false });
+  }
 };
 
 module.exports = {
-  startGame
+  guessLetter
 };
