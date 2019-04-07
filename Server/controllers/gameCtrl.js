@@ -26,6 +26,7 @@ const guessLetter = (req, res) => {
 
     if (wordScore.initialWord === displayWord) {
       wordScore.won = true;
+      wordScore.guessed = "";
       res.status(200).json({
         won: true,
         initialWord: wordScore.initialWord

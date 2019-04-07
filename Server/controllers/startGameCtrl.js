@@ -32,6 +32,7 @@ const startGame = async (req, res) => {
 
   //Execute when game starts. Updating initials state of the game.
   wordScore.initialWord = correctWord;
+  wordScore.guessed = "";
   wordScore.totalLive = 6;
   wordScore.lost = false;
   wordScore.won = false;
