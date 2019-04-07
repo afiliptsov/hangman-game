@@ -3,6 +3,7 @@ let wordScore = {
   totalLive: 6,
   lost: false,
   won: false,
+  guessed: "",
 
   removeLife: () => {
     wordScore.totalLive -= 1;
