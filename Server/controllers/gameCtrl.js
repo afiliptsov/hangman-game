@@ -2,7 +2,7 @@ const { wordScore } = require(`${__dirname}/initialState`);
 
 let { initialWord, totalLive, lost, won } = wordScore;
 
-const guessLetter = async (req, res) => {
+const guessLetter = (req, res) => {
   console.log(req.body.letter);
   if (!initialWord.includes(req.body.letter)) {
     if (wordScore.totalLive === 1) {
