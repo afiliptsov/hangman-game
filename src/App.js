@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-import "./App.css";
 import Letters from "./components/Letters/Letters";
 import { connect } from "react-redux";
-import axios from "axios";
 import * as actionCreator from "./store/actions/actions";
 
 import wordActions from "./store/reducers/wordReducer";

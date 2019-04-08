@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
+import "./style.comp.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
@@ -9,6 +9,7 @@ import { BrowserRouter } from "react-router-dom";
 import router from "./routes";
 import wordReducer from "./store/reducers/wordReducer";
 import thunk from "redux-thunk";
+import Header from "./components/Header/header";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
