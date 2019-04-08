@@ -1,6 +1,4 @@
 const axios = require("axios");
-const { wordScore } = require(`${__dirname}/initialState`);
-
 //16100 amount of words in multiple difficulty level (1-10)
 
 let correctWord = "";
@@ -15,8 +13,21 @@ let getRandomNumber = (start, end) => {
 };
 
 const startGame = async (req, res) => {
+  console.log("NAME IS HERE", req.body);
+  req.session.wordScore = {
+    name: "",
+    initialWord: "",
+    guessedWordArr: [],
+    totalLive: 6,
+    lost: false,
+    won: false,
+    guessedLetter: "",
+
+    removeLife: () => {
+      req.session.wordScore.totalLive -= 1;
+    }
+  };
   let wordsArray = [];
-  console.log(req.body);
   await axios
     .get(
       `http://app.linkedin-reach.io/words?difficulty=${
@@ -27,16 +38,27 @@ const startGame = async (req, res) => {
       wordsArray = res.data.split("\n");
     });
   correctWord = selectRandom(wordsArray);
+  guessedWordArr = correctWord.split("").map(e => {
+    return (e = "_");
+  });
 
-  wordScore.removeLife();
+  // req.session.wordScore.removeLife();
 
-  //Execute when game starts. Updating initials state of the game.
-  wordScore.initialWord = correctWord;
-  wordScore.guessed = "";
-  wordScore.totalLive = 6;
-  wordScore.lost = false;
-  wordScore.won = false;
-  res.status(200).json({ word: correctWord, length: correctWord.length });
+  //Execute when game starts. Updating initials state of the game. Adding it to the session.
+  req.session.wordScore.name = req.body.name;
+  req.session.wordScore.initialWord = correctWord;
+  req.session.wordScore.guessedLetter = "";
+  req.session.wordScore.totalLive = 6;
+  req.session.wordScore.lost = false;
+  req.session.wordScore.won = false;
+  req.session.wordScore.guessedWordArr = guessedWordArr;
+
+  res.status(200).json({
+    name: req.session.wordScore.name,
+    word: correctWord,
+    guessedWordArr: guessedWordArr,
+    length: correctWord.length
+  });
 };
 
 module.exports = {

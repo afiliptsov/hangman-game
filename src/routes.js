@@ -7,7 +7,7 @@ import Game from "./components/Game/Game";
 export default (
   <Switch>
     <Route exact path="/" component={Home} />
-    <Route exact path="/" component={Game} />
+    <Route exact path="/game" component={Game} />
     <Route path="*" render={() => <div>404 Error</div>} />
   </Switch>
 );

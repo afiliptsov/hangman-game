@@ -3,7 +3,8 @@ import axios from "axios";
 
 const initialState = {
   wordLength: 0,
-  guessedWord: ""
+  playerName: "",
+  guessedWordArr: []
 };
 
 const wordReducer = (state = initialState, action) => {
@@ -11,7 +12,13 @@ const wordReducer = (state = initialState, action) => {
     case actionTypes.REQUEST_LENGTH:
       return { ...state, loading: true };
     case actionTypes.RECEIVE_LENGTH:
-      return { ...state, guessedWord: action.wordLength, loading: false };
+      return {
+        ...state,
+        wordLength: action.wordLength,
+        playerName: action.playerName,
+        guessedWordArr: action.guessedWordArr,
+        loading: false
+      };
     default:
       return state;
   }
