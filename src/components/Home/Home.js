@@ -28,7 +28,7 @@ class Home extends Component {
   };
 
   startGame = (name, diff) => {
-    this.props.startGame(name, diff);
+    this.props.startGame(this.state.userName);
   };
 
   render() {
