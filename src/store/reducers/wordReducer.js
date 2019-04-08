@@ -6,22 +6,15 @@ const initialState = {
   guessedWord: ""
 };
 
-export function startGame() {
-  return {
-    type: actionTypes.START_GAME,
-    payload: axios.post(`http://localhost:3033/api/game`, { difficulty: "3" })
-  };
-}
-
 const wordReducer = (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.START_GAME:
-      return {
-        ...state,
-        wordLength: action.payload.data
-      };
+    case actionTypes.REQUEST_LENGTH:
+      return { ...state, loading: true };
+    case actionTypes.RECEIVE_LENGTH:
+      return { ...state, guessedWord: action.wordLength, loading: false };
+    default:
+      return state;
   }
-  return state;
 };
 
 export default wordReducer;

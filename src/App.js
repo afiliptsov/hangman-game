@@ -11,7 +11,7 @@ console.log(wordActions, "wordActions");
 
 class App extends Component {
   componentDidMount() {
-    this.props.onGameStart();
+    this.props.getLength();
   }
 
   render() {
@@ -36,10 +36,8 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    onGameStart: () => dispatch(actionCreator.loadWord)
-  };
+const mapDispatchToProps = {
+  getLength: actionCreator.getWordLength
 };
 
 export default connect(

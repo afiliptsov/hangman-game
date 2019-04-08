@@ -1,21 +1,24 @@
 import axios from "axios";
 
-export const START_GAME = "START_GAME";
+export const REQUEST_LENGTH = "REQUEST_LENGTH";
+export const RECEIVE_LENGTH = "RECEIVE_LENGTH";
 
-export const loadWord = () => {
-  return dispatch => {
+export const requestLength = () => ({
+  type: REQUEST_LENGTH
+});
+
+export const receivedLength = json => ({
+  type: RECEIVE_LENGTH,
+  wordLength: json.length
+});
+
+export function getWordLength(difficulty) {
+  return function(dispatch) {
+    dispatch(requestLength());
     return axios
       .post(`http://localhost:3033/api/game`, { difficulty: "3" })
-      .then((req, res) => {
-        dispatch(changeWordLength(res.data.length));
+      .then(req => {
+        dispatch(receivedLength(req.data));
       });
   };
-};
-
-export const changeWordLength = length => {
-  console.log("length", length);
-  return {
-    type: START_GAME,
-    wordLength: length
-  };
-};
+}
