@@ -15,7 +15,7 @@ class Letters extends Component {
 
   clickedLetter = event => {
     console.log(event.target.value);
-    this.props.pushLetter();
+    this.props.pushLetter(event.target.value.toLowerCase());
   };
 
   render() {
@@ -26,7 +26,7 @@ class Letters extends Component {
             return (
               <button
                 value={singleLet}
-                onClick={this.clickedLetter}
+                onClick={e => this.clickedLetter(e)}
                 key={singleLet}
               >
                 {singleLet}

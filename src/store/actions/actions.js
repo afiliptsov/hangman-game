@@ -4,7 +4,11 @@ export const REQUEST_WORD = "REQUEST_WORD";
 export const RECEIVE_WORD = "RECEIVE_WORD";
 
 export const POST_LETTER = "POST_LETTER";
-export const RECEIVE_POST_LETTER_RESPONSE = "RECEIVE_POST_LETTER_RESPONSE";
+
+export const RECEIVE_GAME_LOST = "RECEIVE_GAME_LOST";
+export const RECEIVE_LIFE_LOST = "RECEIVE_LIFE_LOST";
+export const RECEIVE_GAME_WON = "RECEIVE_GAME_WON";
+export const RECEIVE_GUESSED_LETTER = "RECEIVE_GUESSED_LETTER";
 
 export const requestWord = () => ({
   type: REQUEST_WORD
@@ -24,7 +28,7 @@ export function getWordLength(name, diff, guessArr) {
   return function(dispatch) {
     dispatch(requestWord(name, diff, guessArr));
     return axios
-      .post(`http://localhost:3033/api/game`, { name: name, difficulty: diff })
+      .post(`/api/game`, { name: name, difficulty: diff })
       .then(req => {
         dispatch(receivedWord(req.data));
       });
@@ -35,22 +39,45 @@ export const postLetter = () => ({
   type: POST_LETTER
 });
 
-export const receivePostLetterResponse = json => ({
-  type: RECEIVE_POST_LETTER_RESPONSE,
-  guessedWordArr: json.guessedWordArr,
-  guessed: json.guessed,
-  live: json.live,
-  won: json.won,
-  lost: json.lost
-});
+export const receivePostLetterResponse = json => {
+  switch (json.state) {
+    case "gameLost":
+      return {
+        type: RECEIVE_GAME_LOST,
+        state: json.state,
+        initialWord: json.initialWord
+      };
+    case "letterNotGuessed":
+      return {
+        type: RECEIVE_LIFE_LOST,
+        state: json.state,
+        live: json.live,
+        guessed: json.guessed
+      };
+    case "gameWon":
+      return {
+        type: RECEIVE_GAME_WON,
+        state: json.state,
+        initialWord: json.initialWord
+      };
+    case "letterGuessed":
+      return {
+        type: RECEIVE_GUESSED_LETTER,
+        state: json.state,
+        guessedWordArr: json.guessedWordArr,
+        guessed: json.guessed
+      };
+
+    default:
+      break;
+  }
+};
 
 export function pushLetter(letter) {
   return function(dispatch) {
     dispatch(postLetter(letter));
-    return axios
-      .post("http://localhost:3033/api/letter", { letter: "e" })
-      .then(req => {
-        dispatch(receivePostLetterResponse(req.data));
-      });
+    return axios.post("/api/letter", { letter: letter }).then(req => {
+      dispatch(receivePostLetterResponse(req.data));
+    });
   };
 }

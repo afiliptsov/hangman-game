@@ -11,7 +11,7 @@ var session = require("express-session");
 const { startGame } = require(`${__dirname}/controllers/startGameCtrl`);
 const { guessLetter } = require(`${__dirname}/controllers/gameCtrl`);
 
-const port = process.env.port || 3033;
+const port = process.env.port || 3001;
 
 const app = express();
 

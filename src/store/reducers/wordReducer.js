@@ -29,15 +29,23 @@ const wordReducer = (state = initialState, action) => {
       };
     case actionTypes.POST_LETTER:
       return { ...state, loading: true };
-    case actionTypes.RECEIVE_POST_LETTER_RESPONSE:
+    case actionTypes.RECEIVE_GAME_LOST:
+      return { ...state, state: action.state, initialWord: action.initialWord };
+    case actionTypes.RECEIVE_LIFE_LOST:
       return {
         ...state,
-        guessedWordArr: action.guessedWordArr,
-        guessed: action.guessed,
+        state: action.state,
         live: action.live,
-        won: action.won,
-        lost: action.lost,
-        loading: false
+        guessed: action.guessed
+      };
+    case actionTypes.RECEIVE_GAME_WON:
+      return { ...state, state: action.state, initialWord: action.initialWord };
+    case actionTypes.RECEIVE_GUESSED_LETTER:
+      return {
+        ...state,
+        state: action.state,
+        guessedWordArr: action.guessedWordArr,
+        guessed: action.guessed
       };
     default:
       return state;

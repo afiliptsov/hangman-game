@@ -10,16 +10,19 @@ class Game extends Component {
   }
 
   justTest = () => {
-    axios.post("http://localhost:3033/api/letter", {
+    axios.post("/api/letter", {
       letter: "c"
     });
   };
 
   render() {
     console.log("PROPS came here", this.props);
+    const { guessedWordArr } = this.props.wordReducer;
+
     const mapOverWord = this.props.wordReducer.guessedWordArr.map(e => {
       return <h2>{e}</h2>;
     });
+
     return (
       <div className="main-screen-bg">
         <Letters pushLetter={letter => this.props.pushLetter(letter)} />
