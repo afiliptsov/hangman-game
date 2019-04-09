@@ -14,7 +14,6 @@ let getRandomNumber = (start, end) => {
 
 const startGame = async (req, res) => {
   console.log("SESSION START", req.session.id);
-  console.log("NAME IS HERE", req.body);
   req.session.wordScore = {
     name: "",
     initialWord: "",

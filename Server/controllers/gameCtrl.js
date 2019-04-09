@@ -1,6 +1,4 @@
 const guessLetter = (req, res) => {
-  console.log("SESSION GAME", req.session.id);
-  console.log("111111", req.session.wordScore.initialWord);
   //Negative scenario, if user guessed a wrong letter
   // add req.session. to wordScores
   if (!req.session.wordScore.initialWord.includes(req.body.letter)) {
@@ -39,9 +37,6 @@ const guessLetter = (req, res) => {
         initialWord: req.session.wordScore.initialWord
       });
     } else {
-      console.log("SESSION", req.session);
-      console.log("REQUEST", req.body.letter);
-      console.log("DISPLAYWORD", displayWord);
       guessedWordArr = displayWord.split("").map(e => {
         return (e = "_");
       });
@@ -50,7 +45,6 @@ const guessLetter = (req, res) => {
         .status(200)
         .json({ guessedWordArr: displayWord.split(""), guessed: true });
     }
-    console.log(displayWord);
   }
 };
 
