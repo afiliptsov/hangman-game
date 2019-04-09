@@ -15,6 +15,7 @@ class Letters extends Component {
 
   clickedLetter = event => {
     console.log(event.target.value);
+    this.props.pushLetter();
   };
 
   render() {

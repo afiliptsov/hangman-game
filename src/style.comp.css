@@ -130,3 +130,14 @@ a {
     font-family: "Rock Salt", cursive;
     text-align: center;
     margin-top: 30px; } }
+
+.guessedWordWrapper {
+  margin-left: 20%;
+  margin-right: 20%; }
+
+.guessedWordStyle {
+  margin-top: 20%;
+  font-size: 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
