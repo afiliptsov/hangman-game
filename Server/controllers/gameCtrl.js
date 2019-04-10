@@ -7,8 +7,9 @@ const guessLetter = (req, res) => {
   // add req.session. to wordScores
 
   if (!req.session.wordScore.initialWord.includes(req.body.letter)) {
+    let { totalLive } = req.session.wordScore;
     //If user last life, game is Lost
-    if (req.session.wordScore.totalLive === 1) {
+    if (totalLive === 1) {
       req.session.wordScore.lost = true;
       res.status(200).json({
         state: "gameLost",
@@ -19,15 +20,18 @@ const guessLetter = (req, res) => {
     } else {
       //If user have more than 1 life, subtract 1 life
       req.session.wordScore.totalLive -= 1;
+      req.session.wordScore.usedLetters += req.body.letter;
       res.status(200).json({
         state: "letterNotGuessed",
         live: req.session.wordScore.totalLive,
-        guessed: false
+        guessed: false,
+        usedLetters: req.session.wordScore.usedLetters
       });
     }
   }
   //Positive scenario
   if (req.session.wordScore.initialWord.includes(req.body.letter)) {
+    let { initialWord } = req.session.wordScore;
     let word = req.session.wordScore.initialWord;
 
     console.log("INITIAL WORD", word);
@@ -43,14 +47,15 @@ const guessLetter = (req, res) => {
 
     console.log(displayWord);
 
-    if (req.session.wordScore.initialWord === displayWord) {
+    if (initialWord === displayWord) {
       req.session.wordScore.won = true;
       req.session.wordScore.guessedLetter = "";
       res.status(200).json({
         state: "gameWon",
         won: true,
         initialWord: req.session.wordScore.initialWord,
-        live: req.session.wordScore.totalLive
+        live: req.session.wordScore.totalLive,
+        guessedWordArr: req.session.wordScore.initialWord.split("")
       });
     } else {
       console.log("SESSION", req.session);
@@ -61,11 +66,14 @@ const guessLetter = (req, res) => {
         return (e = "_");
       });
 
+      req.session.wordScore.usedLetters += req.body.letter;
+
       res.status(200).json({
         state: "letterGuessed",
         guessedWordArr: displayWord.split(""),
         guessed: true,
-        live: req.session.wordScore.totalLive
+        live: req.session.wordScore.totalLive,
+        usedLetters: req.session.wordScore.usedLetters
       });
     }
     console.log(displayWord);

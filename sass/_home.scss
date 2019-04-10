@@ -6,17 +6,21 @@
   text-align: center;
 }
 .game-name-title {
-  font-size: 5rem;
+  font-size: 4.5rem;
   position: absolute;
-  top: 25%;
+  top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
 }
 .game-name-input-title {
-  font-size: 3rem;
+  font-size: 2.6rem;
 }
-.game-name-input {
+.game-name-input-title-diff {
+  margin-top: 10%;
+  font-size: 2.6rem;
+}
+.game-input {
   outline: 0;
   background: transparent;
   border-width: 0 0 2px;
@@ -27,6 +31,8 @@
   font-family: "Rock Salt", cursive;
   text-align: center;
   padding-top: 20px;
+}
+.form-wrapper {
 }
 
 .intro-primary {
@@ -113,12 +119,14 @@
 @media only screen and (max-width: 440px) {
   .game-name-title {
     font-size: 3rem;
-    top: 20%;
   }
   .game-name-input-title {
     font-size: 1.5rem;
   }
-  .game-name-input {
+  .game-name-input-title-diff {
+    font-size: 1.5rem;
+  }
+  .game-input {
     width: 200px;
     color: white;
     font-size: 1rem;

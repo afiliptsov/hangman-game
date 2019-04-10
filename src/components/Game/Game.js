@@ -9,12 +9,6 @@ class Game extends Component {
     super();
   }
 
-  justTest = () => {
-    axios.post("/api/letter", {
-      letter: "c"
-    });
-  };
-
   render() {
     console.log("PROPS came here", this.props);
     const { guessedWordArr } = this.props.wordReducer;
@@ -25,12 +19,12 @@ class Game extends Component {
 
     return (
       <div className="main-screen-bg">
-        <Letters pushLetter={letter => this.props.pushLetter(letter)} />
         <button onClick={this.justTest}>Click me</button>
         <div className="guessedWordWrapper">
           <p>Test</p>
           <div className="guessedWordStyle">{mapOverWord}</div>
         </div>
+        <Letters pushLetter={letter => this.props.pushLetter(letter)} />
       </div>
     );
   }

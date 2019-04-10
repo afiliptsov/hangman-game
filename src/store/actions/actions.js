@@ -19,8 +19,6 @@ export const receivedWord = json => ({
   wordLength: json.length,
   playerName: json.name,
   live: json.live,
-  lost: json.lost,
-  won: json.won,
   guessedWordArr: json.guessedWordArr
 });
 
@@ -52,20 +50,23 @@ export const receivePostLetterResponse = json => {
         type: RECEIVE_LIFE_LOST,
         state: json.state,
         live: json.live,
-        guessed: json.guessed
+        guessed: json.guessed,
+        usedLetters: json.usedLetters
       };
     case "gameWon":
       return {
         type: RECEIVE_GAME_WON,
         state: json.state,
-        initialWord: json.initialWord
+        initialWord: json.initialWord,
+        guessedWordArr: json.guessedWordArr
       };
     case "letterGuessed":
       return {
         type: RECEIVE_GUESSED_LETTER,
         state: json.state,
         guessedWordArr: json.guessedWordArr,
-        guessed: json.guessed
+        guessed: json.guessed,
+        usedLetters: json.usedLetters
       };
 
     default:

@@ -3,6 +3,7 @@ import Hangman from "../Hangman/hangman";
 import { connect } from "react-redux";
 import { HashRouter, Route, Switch, Link } from "react-router-dom";
 import * as actionCreator from "../../store/actions/actions";
+import Modal from "react-modal";
 
 class Home extends Component {
   constructor() {
@@ -35,22 +36,26 @@ class Home extends Component {
     return (
       <div className="main-screen-bg">
         <div className="game-name-title">
-          <h2>Mr . Hangman</h2>
+          <h2>Hangman</h2>
           <br />
-          <p className="game-name-input-title ">What is your name?</p>
-          <form>
-            <input
-              type="text"
-              className="game-name-input"
-              onChange={e => this.onChangeHandler(e)}
-            />
-            <p>Difficulty level</p>
-            <input
-              type="text"
-              className="game-name-input"
-              onChange={e => this.onDifficultyHandler(e)}
-            />
-          </form>
+          <div>
+            <form className="form-wrapper">
+              <p className="game-name-input-title">What is your name?</p>
+              <input
+                type="text"
+                className="game-input"
+                onChange={e => this.onChangeHandler(e)}
+              />
+            </form>
+            <form className="form-wrapper">
+              <p className="game-name-input-title-diff">Difficulty level</p>
+              <input
+                type="text"
+                className="game-input"
+                onChange={e => this.onDifficultyHandler(e)}
+              />
+            </form>
+          </div>
         </div>
         <div className="intro-center-button">
           <h1 className="intro-primary" />

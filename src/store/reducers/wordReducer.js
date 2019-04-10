@@ -5,11 +5,10 @@ const initialState = {
   wordLength: 0,
   playerName: "",
   live: 6,
-  lost: false,
-  won: false,
   guessedWordArr: [],
   guessed: false,
-  initialWord: ""
+  initialWord: "",
+  usedLetters: ""
 };
 
 const wordReducer = (state = initialState, action) => {
@@ -22,8 +21,6 @@ const wordReducer = (state = initialState, action) => {
         wordLength: action.wordLength,
         playerName: action.playerName,
         live: action.live,
-        lost: action.lost,
-        won: action.won,
         guessedWordArr: action.guessedWordArr,
         loading: false
       };
@@ -36,16 +33,23 @@ const wordReducer = (state = initialState, action) => {
         ...state,
         state: action.state,
         live: action.live,
-        guessed: action.guessed
+        guessed: action.guessed,
+        usedLetters: action.usedLetters
       };
     case actionTypes.RECEIVE_GAME_WON:
-      return { ...state, state: action.state, initialWord: action.initialWord };
+      return {
+        ...state,
+        state: action.state,
+        initialWord: action.initialWord,
+        guessedWordArr: action.guessedWordArr
+      };
     case actionTypes.RECEIVE_GUESSED_LETTER:
       return {
         ...state,
         state: action.state,
         guessedWordArr: action.guessedWordArr,
-        guessed: action.guessed
+        guessed: action.guessed,
+        usedLetters: action.usedLetters
       };
     default:
       return state;
