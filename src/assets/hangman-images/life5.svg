@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="229px" height="334px" viewBox="0 0 229 334" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>Group 3</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Tablet" transform="translate(-229.000000, -36.000000)" stroke="#F5F5F5">
+            <g id="Group-3" transform="translate(231.000000, 38.000000)">
+                <g id="Group-2">
+                    <g id="Group">
+                        <path d="M224.558594,330.326246 C214.951741,214.602777 205.09497,136.044183 194.988281,94.650465 C184.881592,53.2567467 168.513103,24.4051842 145.882813,8.09577753 C88.5234375,-15.755785 47.8958333,13.0957775 24,94.650465" id="Line" stroke-width="3" stroke-linecap="square"></path>
+                        <circle id="head" stroke-width="4" cx="36" cy="129" r="36"></circle>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

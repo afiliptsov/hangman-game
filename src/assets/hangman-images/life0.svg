@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="279px" height="334px" viewBox="0 0 279 334" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Tablet" transform="translate(-179.000000, -36.000000)" stroke="#F5F5F5">
+            <g id="Group" transform="translate(182.000000, 38.000000)">
+                <path d="M273.558594,330.326246 C263.951741,214.602777 254.09497,136.044183 243.988281,94.650465 C233.881592,53.2567467 217.513103,24.4051842 194.882813,8.09577753 C137.523438,-15.755785 96.8958333,13.0957775 73,94.650465" id="Line" stroke-width="3" stroke-linecap="square"></path>
+                <circle id="head" stroke-width="4" cx="85" cy="129" r="36"></circle>
+                <path d="M83.0475894,165 C94.4458078,188.664548 98.0750463,207.164548 93.9353048,220.5 C89.7955633,233.835452 74.6803673,252.335452 48.5897169,276" id="body" stroke-width="4" stroke-linecap="square"></path>
+                <path d="M92.3335486,214.625 C70.6490086,219.06901 55.0177727,219.06901 45.4398409,214.625 C31.0729431,207.958984 20.423166,200.091797 27.667938,184" id="hand-left" stroke-width="4" stroke-linecap="square"></path>
+                <path d="M95.5897169,213.5625 C104.409248,200.710067 113.590193,196.460067 123.132553,200.8125 C132.674913,205.164933 139.160634,216.560766 142.589717,235" id="hand-right" stroke-width="4" stroke-linecap="square"></path>
+                <path d="M49,276 L64,320" id="right-leg" stroke-width="4" fill="#D8D8D8" stroke-linecap="square"></path>
+                <path d="M49,276 L0,282" id="left-leg" stroke-width="4" fill="#D8D8D8" stroke-linecap="square"></path>
+                <path d="M64,113.5 L73,122.5" id="Line-2" stroke-width="2" stroke-linecap="square"></path>
+                <path d="M73,113 L64,123" id="Line-2" stroke-width="2" stroke-linecap="square"></path>
+                <path d="M91,113.5 L100,122.5" id="Line-2" stroke-width="2" stroke-linecap="square"></path>
+                <path d="M73,113 L64,123" id="Line-2" stroke-width="2" stroke-linecap="square"></path>
+                <path d="M100,113 L91,123" id="Line-2" stroke-width="2" stroke-linecap="square"></path>
+                <path d="M68.5,143.5 L95.5,143.5" id="Line-3" stroke-width="1.5" stroke-linecap="square"></path>
+            </g>
+        </g>
+    </g>
+</svg>

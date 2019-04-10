@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import Letters from "../Letters/Letters";
 import * as actionCreator from "../../store/actions/actions";
-import axios from "axios";
+import Hangman from "../Hangman/hangman";
 
 class Game extends Component {
   constructor() {
@@ -19,9 +19,11 @@ class Game extends Component {
 
     return (
       <div className="main-screen-bg">
-        <button onClick={this.justTest}>Click me</button>
+        <Hangman live={this.props.wordReducer.live} />
+        <div className="live-count">
+          <h2>Lives : {this.props.wordReducer.live}</h2>
+        </div>
         <div className="guessedWordWrapper">
-          <p>Test</p>
           <div className="guessedWordStyle">{mapOverWord}</div>
         </div>
         <Letters pushLetter={letter => this.props.pushLetter(letter)} />

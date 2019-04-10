@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="231px" height="334px" viewBox="0 0 231 334" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>Group 4</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Tablet" transform="translate(-227.000000, -36.000000)" stroke="#F5F5F5">
+            <g id="Group-4" transform="translate(230.000000, 38.000000)">
+                <g id="Group-3">
+                    <g id="Group-2">
+                        <g id="Group">
+                            <path d="M225.558594,330.326246 C215.951741,214.602777 206.09497,136.044183 195.988281,94.650465 C185.881592,53.2567467 169.513103,24.4051842 146.882813,8.09577753 C89.5234375,-15.755785 48.8958333,13.0957775 25,94.650465" id="Line" stroke-width="3" stroke-linecap="square"></path>
+                            <circle id="head" stroke-width="4" cx="37" cy="129" r="36"></circle>
+                            <path d="M35.0475894,165 C46.4458078,188.664548 50.0750463,207.164548 45.9353048,220.5 C41.7955633,233.835452 26.6803673,252.335452 0.589716928,276" id="body" stroke-width="4" stroke-linecap="square"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

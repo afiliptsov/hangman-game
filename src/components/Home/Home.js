@@ -3,8 +3,6 @@ import Hangman from "../Hangman/hangman";
 import { connect } from "react-redux";
 import { HashRouter, Route, Switch, Link } from "react-router-dom";
 import * as actionCreator from "../../store/actions/actions";
-import Modal from "react-modal";
-
 class Home extends Component {
   constructor() {
     super();
@@ -20,6 +18,9 @@ class Home extends Component {
     });
     console.log(this.props);
   };
+  submitHandler(e) {
+    e.preventDefault();
+  }
 
   onDifficultyHandler = e => {
     this.setState({
@@ -39,15 +40,13 @@ class Home extends Component {
           <h2>Hangman</h2>
           <br />
           <div>
-            <form className="form-wrapper">
+            <form onSubmit={this.submitHandler} className="form-wrapper">
               <p className="game-name-input-title">What is your name?</p>
               <input
                 type="text"
                 className="game-input"
                 onChange={e => this.onChangeHandler(e)}
               />
-            </form>
-            <form className="form-wrapper">
               <p className="game-name-input-title-diff">Difficulty level</p>
               <input
                 type="text"

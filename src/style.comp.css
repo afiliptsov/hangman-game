@@ -141,7 +141,7 @@ a {
   margin-right: 20%; }
 
 .guessedWordStyle {
-  margin-top: 20%;
+  margin-top: 15%;
   font-size: 3rem;
   display: flex;
   justify-content: space-between;
@@ -152,6 +152,25 @@ a {
   margin: 0 auto;
   text-align: center;
   margin-top: 10rem; }
+
+.live-count {
+  position: fixed;
+  right: 40px;
+  top: 40px;
+  border: 1px solid white;
+  padding: 5px;
+  border-radius: 3px; }
+  .live-count h2 {
+    font-size: 2rem; }
+
+.hangman-svg-wrapper {
+  padding: 5px;
+  height: 150px;
+  text-align: center; }
+
+.hangman {
+  height: 100%;
+  border-bottom: 2px solid white; }
 
 .letterStyle:focus {
   outline: 0; }

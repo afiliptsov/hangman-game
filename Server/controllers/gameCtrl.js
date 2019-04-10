@@ -9,7 +9,7 @@ const guessLetter = (req, res) => {
   if (!req.session.wordScore.initialWord.includes(req.body.letter)) {
     let { totalLive } = req.session.wordScore;
     //If user last life, game is Lost
-    if (totalLive === 1) {
+    if (totalLive === 0) {
       req.session.wordScore.lost = true;
       res.status(200).json({
         state: "gameLost",
