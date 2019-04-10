@@ -27,7 +27,12 @@ const wordReducer = (state = initialState, action) => {
     case actionTypes.POST_LETTER:
       return { ...state, loading: true };
     case actionTypes.RECEIVE_GAME_LOST:
-      return { ...state, state: action.state, initialWord: action.initialWord };
+      return {
+        ...state,
+        state: action.state,
+        initialWord: action.initialWord,
+        live: action.live
+      };
     case actionTypes.RECEIVE_LIFE_LOST:
       return {
         ...state,
@@ -41,7 +46,8 @@ const wordReducer = (state = initialState, action) => {
         ...state,
         state: action.state,
         initialWord: action.initialWord,
-        guessedWordArr: action.guessedWordArr
+        guessedWordArr: action.guessedWordArr,
+        live: action.live
       };
     case actionTypes.RECEIVE_GUESSED_LETTER:
       return {

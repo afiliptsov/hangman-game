@@ -43,7 +43,8 @@ export const receivePostLetterResponse = json => {
       return {
         type: RECEIVE_GAME_LOST,
         state: json.state,
-        initialWord: json.initialWord
+        initialWord: json.initialWord,
+        live: json.live
       };
     case "letterNotGuessed":
       return {
@@ -58,7 +59,8 @@ export const receivePostLetterResponse = json => {
         type: RECEIVE_GAME_WON,
         state: json.state,
         initialWord: json.initialWord,
-        guessedWordArr: json.guessedWordArr
+        guessedWordArr: json.guessedWordArr,
+        live: json.live
       };
     case "letterGuessed":
       return {

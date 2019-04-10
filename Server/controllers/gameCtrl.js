@@ -7,9 +7,20 @@ const guessLetter = (req, res) => {
   // add req.session. to wordScores
 
   if (!req.session.wordScore.initialWord.includes(req.body.letter)) {
-    let { totalLive } = req.session.wordScore;
     //If user last life, game is Lost
-    if (totalLive === 0) {
+    // if (req.session.wordScore.totalLive === 0) {
+    //   req.session.wordScore.lost = true;
+    //   res.status(200).json({
+    //     state: "gameLost",
+    //     lost: req.session.wordScore.lost,
+    //     initialWord: req.session.wordScore.initialWord,
+    //     live: req.session.wordScore.totalLive
+    //   });
+    // } else {
+    //If user have more than 1 life, subtract 1 life
+    req.session.wordScore.totalLive -= 1;
+    req.session.wordScore.usedLetters += req.body.letter;
+    if (req.session.wordScore.totalLive === 0) {
       req.session.wordScore.lost = true;
       res.status(200).json({
         state: "gameLost",
@@ -18,9 +29,6 @@ const guessLetter = (req, res) => {
         live: req.session.wordScore.totalLive
       });
     } else {
-      //If user have more than 1 life, subtract 1 life
-      req.session.wordScore.totalLive -= 1;
-      req.session.wordScore.usedLetters += req.body.letter;
       res.status(200).json({
         state: "letterNotGuessed",
         live: req.session.wordScore.totalLive,
@@ -29,6 +37,7 @@ const guessLetter = (req, res) => {
       });
     }
   }
+  // }
   //Positive scenario
   if (req.session.wordScore.initialWord.includes(req.body.letter)) {
     let { initialWord } = req.session.wordScore;

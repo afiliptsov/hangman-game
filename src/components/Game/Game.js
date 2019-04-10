@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import Letters from "../Letters/Letters";
 import * as actionCreator from "../../store/actions/actions";
 import Hangman from "../Hangman/hangman";
+import { Redirect } from "react-router";
 
 class Game extends Component {
   constructor() {
@@ -19,6 +20,7 @@ class Game extends Component {
 
     return (
       <div className="main-screen-bg">
+        }
         <Hangman live={this.props.wordReducer.live} />
         <div className="live-count">
           <h2>Lives : {this.props.wordReducer.live}</h2>
