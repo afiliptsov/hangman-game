@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import happyFace from "../../assets/hangman-images/lostFace.svg";
 
 class Won extends Component {
   constructor() {
@@ -8,7 +9,12 @@ class Won extends Component {
   }
 
   render() {
-    return <div>I am here WON</div>;
+    return (
+      <div>
+        <div>I am here WON</div>
+        <img src={happyFace} />
+      </div>
+    );
   }
 }
 const mapStateToProps = state => {

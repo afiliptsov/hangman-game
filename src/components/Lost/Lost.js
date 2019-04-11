@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import lostFace from "../../assets/hangman-images/lostFace.svg";
 
 class Lost extends Component {
   constructor() {
@@ -12,6 +13,7 @@ class Lost extends Component {
     return (
       <div>
         <h2>I am Sorry but seems like you lost...</h2>
+        <img src={lostFace} />
         <h2>
           Correct word was: <h1>{this.props.wordReducer.initialWord}</h1>
         </h2>
