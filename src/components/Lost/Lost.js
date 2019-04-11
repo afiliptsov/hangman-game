@@ -12,10 +12,24 @@ class Lost extends Component {
   render() {
     return (
       <div>
-        <h2>I am Sorry but seems like you lost...</h2>
+        <footer style={{ textAlign: "center" }}>
+          <h2
+            style={{
+              position: "fixed",
+              bottom: "0px",
+              width: "100%",
+              fontSize: "3rem"
+            }}
+          >
+            I am Sorry but seems like you lost....
+          </h2>
+        </footer>
         <img src={lostFace} />
         <h2>
-          Correct word was: <h1>{this.props.wordReducer.initialWord}</h1>
+          Correct word was:
+          <h1 style={{ border: "2px sold white", padding: "5px" }}>
+            {this.props.wordReducer.initialWord}
+          </h1>
         </h2>
         <h2>Do you want to try one more time?</h2>
         <Link to="/">
