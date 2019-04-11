@@ -8,7 +8,14 @@ import { Redirect } from "react-router";
 class Game extends Component {
   constructor() {
     super();
+    this.state = {
+      redirect: ""
+    };
   }
+
+  whenReady = () => {
+    this.setState({ redirect: <Redirect to="/summary" /> });
+  };
 
   render() {
     console.log("PROPS came here", this.props);
@@ -20,7 +27,7 @@ class Game extends Component {
 
     return (
       <div className="main-screen-bg">
-        }
+        {this.props.wordReducer.live === 0 ? <Redirect to="/summary" /> : null}
         <Hangman live={this.props.wordReducer.live} />
         <div className="live-count">
           <h2>Lives : {this.props.wordReducer.live}</h2>
