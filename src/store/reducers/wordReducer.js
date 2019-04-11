@@ -8,7 +8,9 @@ const initialState = {
   guessedWordArr: [],
   guessed: false,
   initialWord: "",
-  usedLetters: ""
+  usedLetters: "",
+  invalidGuess: "",
+  validGuess: ""
 };
 
 const wordReducer = (state = initialState, action) => {
@@ -22,6 +24,11 @@ const wordReducer = (state = initialState, action) => {
         playerName: action.playerName,
         live: action.live,
         guessedWordArr: action.guessedWordArr,
+        initialWord: action.initialWord,
+        invalidGuess: action.invalidGuess,
+        state: action.state,
+        usedLetters: action.usedLetters,
+        validGuess: action.validGuess,
         loading: false
       };
     case actionTypes.POST_LETTER:
@@ -39,7 +46,8 @@ const wordReducer = (state = initialState, action) => {
         state: action.state,
         live: action.live,
         guessed: action.guessed,
-        usedLetters: action.usedLetters
+        usedLetters: action.usedLetters,
+        invalidGuess: action.invalidGuess
       };
     case actionTypes.RECEIVE_GAME_WON:
       return {
@@ -55,7 +63,8 @@ const wordReducer = (state = initialState, action) => {
         state: action.state,
         guessedWordArr: action.guessedWordArr,
         guessed: action.guessed,
-        usedLetters: action.usedLetters
+        usedLetters: action.usedLetters,
+        validGuess: action.validGuess
       };
     default:
       return state;

@@ -20,6 +20,7 @@ const guessLetter = (req, res) => {
     //If user have more than 1 life, subtract 1 life
     req.session.wordScore.totalLive -= 1;
     req.session.wordScore.usedLetters += req.body.letter;
+    req.session.wordScore.invalidGuess += req.body.letter;
     if (req.session.wordScore.totalLive === 0) {
       req.session.wordScore.lost = true;
       res.status(200).json({
@@ -33,7 +34,8 @@ const guessLetter = (req, res) => {
         state: "letterNotGuessed",
         live: req.session.wordScore.totalLive,
         guessed: false,
-        usedLetters: req.session.wordScore.usedLetters
+        usedLetters: req.session.wordScore.usedLetters,
+        invalidGuess: req.session.wordScore.invalidGuess
       });
     }
   }
@@ -76,13 +78,15 @@ const guessLetter = (req, res) => {
       });
 
       req.session.wordScore.usedLetters += req.body.letter;
+      req.session.wordScore.validGuess += req.body.letter;
 
       res.status(200).json({
         state: "letterGuessed",
         guessedWordArr: displayWord.split(""),
         guessed: true,
         live: req.session.wordScore.totalLive,
-        usedLetters: req.session.wordScore.usedLetters
+        usedLetters: req.session.wordScore.usedLetters,
+        validGuess: req.session.wordScore.validGuess
       });
     }
     console.log(displayWord);

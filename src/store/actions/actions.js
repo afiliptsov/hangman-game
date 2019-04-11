@@ -19,7 +19,12 @@ export const receivedWord = json => ({
   wordLength: json.length,
   playerName: json.name,
   live: json.live,
-  guessedWordArr: json.guessedWordArr
+  guessedWordArr: json.guessedWordArr,
+  initialWord: json.initialWord,
+  invalidGuess: json.invalidGuess,
+  state: json.state,
+  usedLetters: json.state,
+  validGuess: json.state
 });
 
 export function getWordLength(name, diff, guessArr) {
@@ -52,7 +57,8 @@ export const receivePostLetterResponse = json => {
         state: json.state,
         live: json.live,
         guessed: json.guessed,
-        usedLetters: json.usedLetters
+        usedLetters: json.usedLetters,
+        invalidGuess: json.invalidGuess
       };
     case "gameWon":
       return {
@@ -68,7 +74,8 @@ export const receivePostLetterResponse = json => {
         state: json.state,
         guessedWordArr: json.guessedWordArr,
         guessed: json.guessed,
-        usedLetters: json.usedLetters
+        usedLetters: json.usedLetters,
+        validGuess: json.validGuess
       };
 
     default:

@@ -31,9 +31,23 @@ class Letters extends Component {
     }
   };
 
+  changeKeyboardStyle(letter, invalidStyle, validStyle) {
+    if (this.props.wordReducer.invalidGuess.includes(letter.toLowerCase())) {
+      return invalidStyle;
+    } else if (
+      this.props.wordReducer.validGuess.includes(letter.toLowerCase())
+    ) {
+      return validStyle;
+    }
+  }
+
   render() {
-    const letterStyle1 = {
-      backgroundColor: "rgba(212, 212, 212, 0.186)",
+    const invalidStyle = {
+      backgroundColor: "rgba(255, 102, 102, 0.186)",
+      cursor: "not-allowed"
+    };
+    const validStyle = {
+      backgroundColor: "rgba(153, 255, 153, 0.186)",
       cursor: "not-allowed"
     };
     {
@@ -48,13 +62,11 @@ class Letters extends Component {
               <button
                 className="letterStyle"
                 value={singleLet}
-                style={
-                  this.props.wordReducer.usedLetters.includes(
-                    singleLet.toLowerCase()
-                  )
-                    ? letterStyle1
-                    : null
-                }
+                style={this.changeKeyboardStyle(
+                  singleLet,
+                  invalidStyle,
+                  validStyle
+                )}
                 onClick={e => this.clickedLetter(e)}
                 key={singleLet}
               >

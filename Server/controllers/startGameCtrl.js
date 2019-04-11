@@ -20,7 +20,12 @@ const startGame = async (req, res) => {
     initialWord: "",
     guessedWordArr: [],
     totalLive: 6,
-    guessedLetter: ""
+    guessedLetter: "",
+    notGuessedLetters: "",
+    guessedLetters: "",
+    validGuess: "",
+    invalidGuess: "",
+    status: ""
   };
   let wordsArray = [];
   await axios
@@ -47,6 +52,8 @@ const startGame = async (req, res) => {
   req.session.wordScore.guessedWordArr = guessedWordArr;
   req.session.wordScore.usedLetters = "";
   req.session.wordScore.state = "";
+  req.session.wordScore.notGuessedLetters = [];
+  req.session.wordScore.guessedLetters = [];
 
   console.log("WORD", req.session.wordScore.initialWord);
 
@@ -55,7 +62,12 @@ const startGame = async (req, res) => {
     word: correctWord,
     length: correctWord.length,
     live: req.session.wordScore.totalLive,
-    guessedWordArr: guessedWordArr
+    guessedWordArr: guessedWordArr,
+    initialWord: "",
+    invalidGuess: "",
+    state: "",
+    usedLetters: "",
+    validGuess: ""
   });
 };
 
