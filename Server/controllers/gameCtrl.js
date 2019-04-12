@@ -19,9 +19,17 @@ const guessLetter = (req, res) => {
     // } else {
     //If user have more than 1 life, subtract 1 life
     req.session.wordScore.totalLive -= 1;
-    req.session.wordScore.usedLetters += req.body.letter;
-    req.session.wordScore.invalidGuess += req.body.letter;
-    if (req.session.wordScore.totalLive === 0) {
+    if (req.session.wordScore.totalLive < 0) {
+      res.status(200).json({
+        message: "Hmmm, i think someone is trying to cheat?"
+      });
+    } else if (req.body.letter.length > 1) {
+      res.status(404).json({
+        message: "Sorry, one letter at the time"
+      });
+    } else if (req.session.wordScore.totalLive === 0) {
+      req.session.wordScore.usedLetters += req.body.letter;
+      req.session.wordScore.invalidGuess += req.body.letter;
       req.session.wordScore.lost = true;
       res.status(200).json({
         state: "gameLost",
@@ -30,6 +38,8 @@ const guessLetter = (req, res) => {
         live: req.session.wordScore.totalLive
       });
     } else {
+      req.session.wordScore.usedLetters += req.body.letter;
+      req.session.wordScore.invalidGuess += req.body.letter;
       res.status(200).json({
         state: "letterNotGuessed",
         live: req.session.wordScore.totalLive,
@@ -46,7 +56,6 @@ const guessLetter = (req, res) => {
     let word = req.session.wordScore.initialWord;
 
     console.log("INITIAL WORD", word);
-
     req.session.wordScore.guessedLetter += req.body.letter;
     console.log("GUESSED LETTER", req.body.letter);
 
@@ -58,7 +67,11 @@ const guessLetter = (req, res) => {
 
     console.log(displayWord);
 
-    if (initialWord === displayWord) {
+    if (req.body.letter.length > 1) {
+      res.status(404).json({
+        message: "Sorry, one letter at the time"
+      });
+    } else if (initialWord === displayWord) {
       req.session.wordScore.won = true;
       req.session.wordScore.guessedLetter = "";
       res.status(200).json({

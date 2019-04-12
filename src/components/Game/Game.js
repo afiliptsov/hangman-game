@@ -40,15 +40,17 @@ class Game extends Component {
     });
 
     return (
-      <div className="main-screen-bg">
-        <Hangman live={this.props.wordReducer.live} />
-        <div className="live-count">
-          <h2>Lives : {this.props.wordReducer.live}</h2>
+      <div style={{ width: "100%", height: "100%" }}>
+        <div className="main-screen-bg">
+          <Hangman live={this.props.wordReducer.live} />
+          <div className="live-count">
+            <h2>Lives : {this.props.wordReducer.live}</h2>
+          </div>
+          <div className="guessedWordWrapper">
+            <div className="guessedWordStyle">{mapOverWord}</div>
+          </div>
+          {this.gameActivity(this.props.wordReducer.state)}
         </div>
-        <div className="guessedWordWrapper">
-          <div className="guessedWordStyle">{mapOverWord}</div>
-        </div>
-        {this.gameActivity(this.props.wordReducer.state)}
       </div>
     );
   }
