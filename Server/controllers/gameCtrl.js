@@ -20,7 +20,7 @@ const guessLetter = (req, res) => {
     //If user have more than 1 life, subtract 1 life
     req.session.wordScore.totalLive -= 1;
     if (req.session.wordScore.totalLive < 0) {
-      res.status(200).json({
+      res.status(404).json({
         message: "Hmmm, i think someone is trying to cheat?"
       });
     } else if (req.body.letter.length > 1) {
