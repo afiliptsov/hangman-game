@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Letters from "../Letters/Letters";
-import Won from "../Won/Won";
-import Lost from "../Lost/Lost";
+import Summary from "../Summary/Summary";
+
 import * as actionCreator from "../../store/actions/actions";
 import Hangman from "../Hangman/hangman";
 import { Redirect } from "react-router";
@@ -21,9 +21,9 @@ class Game extends Component {
 
   gameActivity(gameState) {
     if (gameState === "gameLost") {
-      return <Lost />;
+      return <Summary />;
     } else if (gameState === "gameWon") {
-      return <Won />;
+      return <Summary />;
     } else {
       return <Letters pushLetter={letter => this.props.pushLetter(letter)} />;
     }

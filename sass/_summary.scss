@@ -1,0 +1,25 @@
+.summary {
+  text-align: center;
+  margin-top: 30px;
+  .youLost {
+    width: 100%;
+    font-size: 3rem;
+  }
+
+  .corrWord-wrapper {
+    margin-top: 5%;
+  }
+  .corrWord {
+    margin-top: 2%;
+    letter-spacing: 30px;
+    width: 100%;
+  }
+}
+
+.tryAgain-LeaderboardWrapper {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  margin-top: 5%;
+  text-align: center;
+}
