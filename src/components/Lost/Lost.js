@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import lostFace from "../../assets/hangman-images/lostFace.svg";
+import email from "../../assets/other/email.svg";
 
 class Lost extends Component {
   constructor() {
@@ -34,6 +35,7 @@ class Lost extends Component {
         <h2>Do you want to try one more time?</h2>
         <Link to="/">
           <button>Yes</button>
+          <img src={email} alt="restart" />
         </Link>
         <button>Leaderboard</button>
       </div>

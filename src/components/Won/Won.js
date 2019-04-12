@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import happyFace from "../../assets/hangman-images/lostFace.svg";
+import happyFace from "../../assets/hangman-images/happyFace.svg";
 
 class Won extends Component {
   constructor() {

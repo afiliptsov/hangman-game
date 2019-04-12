@@ -220,3 +220,28 @@ a {
     width: 30px;
     margin: 5px;
     line-height: 30px; } }
+
+.sadFace404 {
+  margin-top: 10%;
+  width: 170px; }
+
+.backToHomeButton404 {
+  font-size: 4rem;
+  color: white;
+  background-color: rgba(255, 255, 255, 0);
+  border: 2px solid white;
+  padding: 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 2%; }
+
+.backToHomeButton404:hover {
+  color: #333333;
+  background-color: #cacaca; }
+
+.error404 {
+  font-size: 4rem; }
+
+.smthWentWrongText {
+  margin: 10% 10% 0;
+  font-size: 3rem; }
