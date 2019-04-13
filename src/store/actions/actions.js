@@ -66,7 +66,9 @@ export const receivePostLetterResponse = json => {
         state: json.state,
         initialWord: json.initialWord,
         guessedWordArr: json.guessedWordArr,
-        live: json.live
+        live: json.live,
+        minutes: json.minutes,
+        seconds: json.seconds
       };
     case "letterGuessed":
       return {

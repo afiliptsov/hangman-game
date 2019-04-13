@@ -1,3 +1,5 @@
+const axios = require("axios");
+
 const guessLetter = (req, res) => {
   console.log("LETTER", req.body);
   console.log("WORD", req.session.wordScore.initialWord);
@@ -74,7 +76,9 @@ const guessLetter = (req, res) => {
     } else if (initialWord === displayWord) {
       req.session.wordScore.endGameTime = new Date().getTime();
       req.session.wordScore.timeToGuess =
-        req.session.wordScore.endGameTime - req.session.wordScore.startGameTime;
+        (req.session.wordScore.endGameTime -
+          req.session.wordScore.startGameTime) /
+        1000;
       req.session.wordScore.won = true;
       req.session.wordScore.guessedLetter = "";
       res.status(200).json({
@@ -83,7 +87,9 @@ const guessLetter = (req, res) => {
         initialWord: req.session.wordScore.initialWord,
         live: req.session.wordScore.totalLive,
         guessedWordArr: req.session.wordScore.initialWord.split(""),
-        time: req.session.wordScore.timeToGuess
+        time: req.session.wordScore.timeToGuess,
+        minutes: ~~((req.session.wordScore.timeToGuess % 3600) / 60),
+        seconds: parseInt(req.session.wordScore.timeToGuess % 60)
       });
     } else {
       console.log("SESSION", req.session);

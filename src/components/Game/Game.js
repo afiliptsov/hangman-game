@@ -7,6 +7,7 @@ import * as actionCreator from "../../store/actions/actions";
 import Hangman from "../Hangman/hangman";
 import timer from "../../assets/other/timer.svg";
 import header from "../../assets/other/heart.svg";
+import { throws } from "assert";
 
 class Game extends Component {
   constructor() {
@@ -36,6 +37,7 @@ class Game extends Component {
     });
   };
 
+
   componentWillUnmount() {
     clearInterval(this.state.intervalId);
   }
@@ -47,6 +49,30 @@ class Game extends Component {
       return <Summary />;
     } else {
       return <Letters pushLetter={letter => this.props.pushLetter(letter)} />;
+    }
+  }
+
+  clockActivity(gameState) {
+    if (gameState === "gameLost") {
+      return null;
+    } else if (gameState === "gameWon") {
+      return (
+        <div className="clock-wrapper">
+          <img className="alarm" src={timer} alt="timer" />
+          <h2>
+            {this.props.wordReducer.minutes} : {this.props.wordReducer.seconds}
+          </h2>
+        </div>
+      );
+    } else {
+      return (
+        <div className="clock-wrapper">
+          <img className="alarm" src={timer} alt="timer" />
+          <h2>
+            {this.state.min} : {this.state.seconds}
+          </h2>
+        </div>
+      );
     }
   }
 
@@ -63,13 +89,7 @@ class Game extends Component {
     return (
       <div className="main-screen-bg">
         <Hangman live={this.props.wordReducer.live} />
-
-        <div className="clock-wrapper">
-          <img className="alarm" src={timer} alt="timer" />
-          <h2>
-            {this.state.min} : {this.state.seconds}
-          </h2>
-        </div>
+        {this.clockActivity(this.props.wordReducer.state)}
         <div className="live-count">
           <img className="heart" src={header} alt="lives" />
           <h2>Lives : {this.props.wordReducer.live}</h2>

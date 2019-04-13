@@ -5,12 +5,17 @@ import lostFace from "../../assets/hangman-images/lostFace.svg";
 import restart from "../../assets/other/restart.svg";
 import leaderboard from "../../assets/other/leaderboard.svg";
 import happyFace from "../../assets/hangman-images/happyFace.svg";
+import axios from "axios";
 
 class Summary extends Component {
   constructor() {
     super();
     this.state = {};
   }
+
+  saveScoreAfterWin = () => {
+    axios.post("/api/submitScore");
+  };
 
   gameLost = () => {
     return (
@@ -46,6 +51,9 @@ class Summary extends Component {
         <div className="summary">
           <h2 className="youLost">Congratulations you won !!!</h2>
           <img src={happyFace} />
+          <h2>
+            Save Score: <button onClick={this.saveScoreAfterWin}>Save</button>
+          </h2>
         </div>
         <div className="tryAgain-LeaderboardWrapper">
           <div>

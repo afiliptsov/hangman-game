@@ -10,7 +10,9 @@ const initialState = {
   initialWord: "",
   usedLetters: "",
   invalidGuess: "",
-  validGuess: ""
+  validGuess: "",
+  minutes: 0,
+  seconds: 0
 };
 
 const wordReducer = (state = initialState, action) => {
@@ -55,7 +57,9 @@ const wordReducer = (state = initialState, action) => {
         state: action.state,
         initialWord: action.initialWord,
         guessedWordArr: action.guessedWordArr,
-        live: action.live
+        live: action.live,
+        minutes: action.minutes,
+        seconds: action.seconds
       };
     case actionTypes.RECEIVE_GUESSED_LETTER:
       return {
