@@ -155,13 +155,28 @@ a {
 
 .live-count {
   position: fixed;
+  text-align: center;
   right: 40px;
   top: 40px;
   border: 1px solid white;
-  padding: 5px;
-  border-radius: 3px; }
-  .live-count h2 {
-    font-size: 2rem; }
+  padding: 10px;
+  width: 100px;
+  border-radius: 3px;
+  text-align: center h2;
+    text-align-font-size: 2rem; }
+
+.clock-wrapper {
+  position: fixed;
+  text-align: center;
+  top: 40px;
+  left: 40px;
+  border: 1px solid white;
+  padding: 10px;
+  border-radius: 3px;
+  width: 100px; }
+  .clock-wrapper .live-c {
+    top: 40px;
+    right: 40px; }
 
 .hangman-svg-wrapper {
   padding: 5px;
@@ -187,6 +202,12 @@ a {
   border: 1px solid;
   text-transform: uppercase;
   font-size: 2rem; }
+
+.alarm {
+  width: 25px; }
+
+.heart {
+  width: 25px; }
 
 @media only screen and (max-width: 780px) {
   .letterStyle {

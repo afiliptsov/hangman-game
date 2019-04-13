@@ -72,6 +72,9 @@ const guessLetter = (req, res) => {
         message: "Sorry, one letter at the time"
       });
     } else if (initialWord === displayWord) {
+      req.session.wordScore.endGameTime = new Date().getTime();
+      req.session.wordScore.timeToGuess =
+        req.session.wordScore.endGameTime - req.session.wordScore.startGameTime;
       req.session.wordScore.won = true;
       req.session.wordScore.guessedLetter = "";
       res.status(200).json({
@@ -79,7 +82,8 @@ const guessLetter = (req, res) => {
         won: true,
         initialWord: req.session.wordScore.initialWord,
         live: req.session.wordScore.totalLive,
-        guessedWordArr: req.session.wordScore.initialWord.split("")
+        guessedWordArr: req.session.wordScore.initialWord.split(""),
+        time: req.session.wordScore.timeToGuess
       });
     } else {
       console.log("SESSION", req.session);

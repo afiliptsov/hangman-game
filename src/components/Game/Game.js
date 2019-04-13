@@ -5,19 +5,40 @@ import Summary from "../Summary/Summary";
 
 import * as actionCreator from "../../store/actions/actions";
 import Hangman from "../Hangman/hangman";
-import { Redirect } from "react-router";
+import timer from "../../assets/other/timer.svg";
+import header from "../../assets/other/heart.svg";
 
 class Game extends Component {
   constructor() {
     super();
     this.state = {
-      redirect: ""
+      redirect: "",
+      currentCount: 0,
+      min: 0,
+      seconds: 0
     };
   }
 
-  whenReady = () => {
-    this.setState({ redirect: <Redirect to="/summary" /> });
+  componentDidMount() {
+    var intervalId = setInterval(this.timer, 1000);
+    // store intervalId in the state so it can be accessed later:
+    this.setState({ intervalId: intervalId });
+  }
+
+  timer = () => {
+    // setState method is used to update the state
+    this.setState({ currentCount: this.state.currentCount + 1 });
+    let min = ~~((this.state.currentCount % 3600) / 60);
+    var sec = this.state.currentCount % 60;
+    this.setState({
+      min: min,
+      seconds: sec
+    });
   };
+
+  componentWillUnmount() {
+    clearInterval(this.state.intervalId);
+  }
 
   gameActivity(gameState) {
     if (gameState === "gameLost") {
@@ -40,17 +61,23 @@ class Game extends Component {
     });
 
     return (
-      <div style={{ width: "100%", height: "100%" }}>
-        <div className="main-screen-bg">
-          <Hangman live={this.props.wordReducer.live} />
-          <div className="live-count">
-            <h2>Lives : {this.props.wordReducer.live}</h2>
-          </div>
-          <div className="guessedWordWrapper">
-            <div className="guessedWordStyle">{mapOverWord}</div>
-          </div>
-          {this.gameActivity(this.props.wordReducer.state)}
+      <div className="main-screen-bg">
+        <Hangman live={this.props.wordReducer.live} />
+
+        <div className="clock-wrapper">
+          <img className="alarm" src={timer} alt="timer" />
+          <h2>
+            {this.state.min} : {this.state.seconds}
+          </h2>
         </div>
+        <div className="live-count">
+          <img className="heart" src={header} alt="lives" />
+          <h2>Lives : {this.props.wordReducer.live}</h2>
+        </div>
+        <div className="guessedWordWrapper">
+          <div className="guessedWordStyle">{mapOverWord}</div>
+        </div>
+        {this.gameActivity(this.props.wordReducer.state)}
       </div>
     );
   }

@@ -10,6 +10,7 @@ var session = require("express-session");
 
 const { startGame } = require(`${__dirname}/controllers/startGameCtrl`);
 const { guessLetter } = require(`${__dirname}/controllers/gameCtrl`);
+const { submitScore } = require(`${__dirname}/controllers/leaderboardCtrl`);
 
 const port = process.env.port || 3023;
 
@@ -32,14 +33,15 @@ app.use(
   })
 );
 
-//Massive is ORM Object Relational Mapper. Wrapper over database instance which gives tools to interact with it.
-// massive(process.env.CONNECTION_STRING)
-//   .then(db => app.set("db", db))
-//   .catch(console.log);
+// Massive is ORM Object Relational Mapper. Wrapper over database instance which gives tools to interact with it.
+massive(process.env.CONNECTION_STRING)
+  .then(db => app.set("db", db))
+  .catch(console.log);
 
 // Initial game logic on Server Side.
 app.post("/api/game", startGame);
 app.post("/api/letter", guessLetter);
+app.post("/api/submitScore", submitScore);
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../build/index.html"));

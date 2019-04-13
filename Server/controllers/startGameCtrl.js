@@ -54,6 +54,9 @@ const startGame = async (req, res) => {
   req.session.wordScore.state = "";
   req.session.wordScore.notGuessedLetters = [];
   req.session.wordScore.guessedLetters = [];
+  req.session.wordScore.startGameTime = new Date().getTime();
+  req.session.wordScore.gameDifficulty = req.body.difficulty;
+  req.session.wordScore.wordSize = 0;
 
   console.log("WORD", req.session.wordScore.initialWord);
 
