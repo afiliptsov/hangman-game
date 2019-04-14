@@ -10,11 +10,17 @@ import axios from "axios";
 class Summary extends Component {
   constructor() {
     super();
-    this.state = {};
+    this.state = {
+      savedScore: false
+    };
   }
 
   saveScoreAfterWin = () => {
+    this.setState({
+      savedScore: !this.state.savedScore
+    });
     axios.post("/api/submitScore");
+    console.log(this.state.savedScore);
   };
 
   gameLost = () => {
@@ -51,9 +57,14 @@ class Summary extends Component {
         <div className="summary">
           <h2 className="youLost">Congratulations you won !!!</h2>
           <img src={happyFace} />
-          <h2>
-            Save Score: <button onClick={this.saveScoreAfterWin}>Save</button>
-          </h2>
+          {this.state.savedScore === true ? (
+            <h2>Your score got saved</h2>
+          ) : (
+            <h2>
+              Do you want to save your score? :
+              <button onClick={this.saveScoreAfterWin}>Save</button>
+            </h2>
+          )}
         </div>
         <div className="tryAgain-LeaderboardWrapper">
           <div>
@@ -64,7 +75,7 @@ class Summary extends Component {
           </div>
           <div>
             <Link>
-              <h2>Save your score</h2>
+              <h2>Leaderboard</h2>
               <img src={leaderboard} alt="leaderboard" />
             </Link>
           </div>

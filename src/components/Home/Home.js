@@ -3,6 +3,10 @@ import Hangman from "../Hangman/hangman";
 import { connect } from "react-redux";
 import { HashRouter, Route, Switch, Link } from "react-router-dom";
 import * as actionCreator from "../../store/actions/actions";
+import ReactDOM from "react-dom";
+import "rc-slider/assets/index.css";
+import Slider, { Range } from "rc-slider";
+
 class Home extends Component {
   constructor() {
     super();
@@ -22,20 +26,21 @@ class Home extends Component {
     e.preventDefault();
   }
 
-  onDifficultyHandler = e => {
+  onDifficultyHandler = value => {
     this.setState({
-      diff: e.target.value
+      diff: value / 10
     });
-    console.log(this.state.diff);
+    console.log(value);
   };
 
   startGame = (name, diff) => {
-    this.props.startGame(this.state.userName);
+    this.props.startGame(this.state.userName, this.state.diff);
   };
 
   render() {
     return (
       <div className="main-screen-bg">
+        {console.log(this.state.diff)}
         <div className="game-name-title">
           <h2>Hangman</h2>
           <br />
@@ -48,11 +53,26 @@ class Home extends Component {
                 onChange={e => this.onChangeHandler(e)}
               />
               <p className="game-name-input-title-diff">Difficulty level</p>
-              <input
-                type="text"
-                className="game-input"
-                onChange={e => this.onDifficultyHandler(e)}
-              />
+              <div style={{ marginTop: "25px" }}>
+                <Slider
+                  onChange={this.onDifficultyHandler}
+                  min={1}
+                  defaultValue={1}
+                  marks={{
+                    10: 1,
+                    20: 2,
+                    30: 3,
+                    40: 4,
+                    50: 5,
+                    60: 6,
+                    70: 7,
+                    80: 8,
+                    90: 9,
+                    100: 10
+                  }}
+                  step={null}
+                />
+              </div>
             </form>
           </div>
         </div>
@@ -60,7 +80,7 @@ class Home extends Component {
           <h1 className="intro-primary" />
           <Link to="/game">
             <a
-              href="#"
+              href=""
               onClick={(name, diff) =>
                 this.startGame(this.state.userName, this.state.diff)
               }
