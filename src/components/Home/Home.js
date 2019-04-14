@@ -12,7 +12,7 @@ class Home extends Component {
     super();
     this.state = {
       userName: "",
-      diff: 0
+      diff: 1
     };
   }
 

@@ -262,6 +262,19 @@ a {
   margin-top: 5%;
   text-align: center; }
 
+.saveMyScoreWrapper {
+  margin-top: 20px;
+  font-size: 2rem;
+  cursor: pointer; }
+  .saveMyScoreWrapper img {
+    width: 30px; }
+
+.scoreSaved {
+  margin-top: 20px;
+  font-size: 2rem; }
+  .scoreSaved img {
+    width: 30px; }
+
 .sadFace404 {
   margin-top: 10%;
   width: 170px; }

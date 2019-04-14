@@ -4,7 +4,9 @@ import { Link } from "react-router-dom";
 import lostFace from "../../assets/hangman-images/lostFace.svg";
 import restart from "../../assets/other/restart.svg";
 import leaderboard from "../../assets/other/leaderboard.svg";
+import star from "../../assets/other/star.svg";
 import happyFace from "../../assets/hangman-images/happyFace.svg";
+import like from "../../assets/other/like.svg";
 import axios from "axios";
 
 class Summary extends Component {
@@ -58,11 +60,14 @@ class Summary extends Component {
           <h2 className="youLost">Congratulations you won !!!</h2>
           <img src={happyFace} />
           {this.state.savedScore === true ? (
-            <h2>Your score got saved</h2>
+            <h2 className="scoreSaved">
+              Your score got saved
+              <img src={like} alt="score saved" />
+            </h2>
           ) : (
-            <h2>
-              Do you want to save your score? :
-              <button onClick={this.saveScoreAfterWin}>Save</button>
+            <h2 className="saveMyScoreWrapper" onClick={this.saveScoreAfterWin}>
+              Save my score
+              <img src={star} alt="save score" />
             </h2>
           )}
         </div>
