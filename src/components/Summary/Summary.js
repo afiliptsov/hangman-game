@@ -44,7 +44,7 @@ class Summary extends Component {
             </Link>
           </div>
           <div>
-            <Link>
+            <Link to="/leaderboard">
               <h2>Leaderboard</h2>
               <img src={leaderboard} alt="leaderboard" />
             </Link>
@@ -79,7 +79,7 @@ class Summary extends Component {
             </Link>
           </div>
           <div>
-            <Link>
+            <Link to="/leaderboard">
               <h2>Leaderboard</h2>
               <img src={leaderboard} alt="leaderboard" />
             </Link>

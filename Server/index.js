@@ -10,7 +10,11 @@ var session = require("express-session");
 
 const { startGame } = require(`${__dirname}/controllers/startGameCtrl`);
 const { guessLetter } = require(`${__dirname}/controllers/gameCtrl`);
-const { submitScore } = require(`${__dirname}/controllers/leaderboardCtrl`);
+const {
+  submitScore,
+  getAllScore,
+  getScoreByDiffLevel
+} = require(`${__dirname}/controllers/leaderboardCtrl`);
 
 const port = process.env.port || 3023;
 
@@ -42,6 +46,8 @@ massive(process.env.CONNECTION_STRING)
 app.post("/api/game", startGame);
 app.post("/api/letter", guessLetter);
 app.post("/api/submitScore", submitScore);
+app.get("/api/getAllScore", getAllScore);
+app.get("/app/getScoreDiff/:difficulty", getScoreByDiffLevel);
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../build/index.html"));
