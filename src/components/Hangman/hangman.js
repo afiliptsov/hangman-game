@@ -1,6 +1,6 @@
 import React from "react";
 
-const Hangman = props => {
+const hangman = props => {
   return (
     <div className="hangman-svg-wrapper">
       <img
@@ -12,4 +12,4 @@ const Hangman = props => {
   );
 };
 
-export default Hangman;
+export default hangman;

@@ -2,9 +2,9 @@ import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import Letters from "../Letters/Letters";
 import Summary from "../Summary/Summary";
+import Hangman from "../Hangman/hangman";
 
 import * as actionCreator from "../../store/actions/actions";
-import Hangman from "../Hangman/Hangman";
 import timer from "../../assets/other/timer.svg";
 import header from "../../assets/other/heart.svg";
 
