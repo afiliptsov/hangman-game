@@ -7,7 +7,6 @@ import * as actionCreator from "../../store/actions/actions";
 import Hangman from "../Hangman/Hangman";
 import timer from "../../assets/other/timer.svg";
 import header from "../../assets/other/heart.svg";
-import Page404 from "../Page404/Page404";
 
 class Game extends Component {
   constructor() {
