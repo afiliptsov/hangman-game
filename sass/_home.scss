@@ -32,8 +32,6 @@
   text-align: center;
   padding-top: 20px;
 }
-.form-wrapper {
-}
 
 .intro-primary {
   color: #ffffff;
@@ -97,6 +95,7 @@
   background-size: cover;
   background-position: top;
   position: relative;
+  overflow: hidden;
 }
 
 @keyframes moveInButton {

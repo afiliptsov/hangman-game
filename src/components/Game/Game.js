@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import Letters from "../Letters/Letters";
 import Summary from "../Summary/Summary";
@@ -81,7 +81,7 @@ class Game extends Component {
     });
 
     return (
-      <div className="main-screen-bg">
+      <Fragment>
         <Hangman live={this.props.wordReducer.live} />
         {this.clockActivity(this.props.wordReducer.state)}
         <div className="live-count">
@@ -92,7 +92,7 @@ class Game extends Component {
           <div className="guessedWordStyle">{mapOverWord}</div>
         </div>
         {this.gameActivity(this.props.wordReducer.state)})
-      </div>
+      </Fragment>
     );
   }
 }

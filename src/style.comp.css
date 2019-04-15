@@ -14,7 +14,13 @@ body {
   color: #f1eded;
   font-weight: 400;
   line-height: 1.6;
-  background-color: #f9f8fd; }
+  background-color: #f9f8fd;
+  min-height: 100vh;
+  background-image: linear-gradient(to right bottom, #0207135e, #383a3ac7), url("../src/assets/bg/bgv2.jpg");
+  background-size: cover;
+  background-position: top;
+  position: relative;
+  overflow: hidden; }
 
 a {
   text-decoration: none;
@@ -106,7 +112,8 @@ a {
   background-image: linear-gradient(to right bottom, #0207135e, #383a3ac7), url("../src/assets/bg/bgv2.jpg");
   background-size: cover;
   background-position: top;
-  position: relative; }
+  position: relative;
+  overflow: hidden; }
 
 @keyframes moveInButton {
   0% {
@@ -310,3 +317,15 @@ a {
   .leaderboardTitle img {
     margin-left: 30px;
     height: 50px; }
+
+.gitHubFooter {
+  position: fixed;
+  background-color: #c9c7c7;
+  bottom: -9px;
+  right: -30px;
+  transform: rotate(-45deg);
+  width: 100px;
+  height: 45px;
+  text-align: center; }
+  .gitHubFooter img {
+    transform: rotate(45deg); }

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import ReactTable from "react-table";
 import "react-table/react-table.css";
@@ -53,7 +53,7 @@ class Leaderboard extends Component {
       }
     ];
     return (
-      <div className="main-screen-bg">
+      <Fragment>
         <div className="leaderboardWrapper">
           <h2 className="leaderboardTitle">
             Leaderboard
@@ -75,7 +75,7 @@ class Leaderboard extends Component {
             </Link>
           </div>
         </div>
-      </div>
+      </Fragment>
     );
   }
 }

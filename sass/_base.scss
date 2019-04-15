@@ -24,6 +24,14 @@ body {
   font-weight: 400;
   line-height: 1.6;
   background-color: #f9f8fd;
+
+  min-height: 100vh;
+  background-image: linear-gradient(to right bottom, #0207135e, #383a3ac7),
+    url("../src/assets/bg/bgv2.jpg");
+  background-size: cover;
+  background-position: top;
+  position: relative;
+  overflow: hidden;
 }
 
 a {

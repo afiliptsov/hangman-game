@@ -1,0 +1,13 @@
+.gitHubFooter {
+  position: fixed;
+  background-color: rgb(201, 199, 199);
+  bottom: -9px;
+  right: -30px;
+  transform: rotate(-45deg);
+  width: 100px;
+  height: 45px;
+  text-align: center;
+  img {
+    transform: rotate(+45deg);
+  }
+}

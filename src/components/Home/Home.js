@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import * as actionCreator from "../../store/actions/actions";
@@ -35,7 +35,7 @@ class Home extends Component {
 
   render() {
     return (
-      <div className="main-screen-bg">
+      <Fragment>
         <div className="game-name-title">
           <h2>Hangman</h2>
           <br />
@@ -85,7 +85,7 @@ class Home extends Component {
             </a>
           </Link>
         </div>
-      </div>
+      </Fragment>
     );
   }
 }
