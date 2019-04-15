@@ -300,3 +300,13 @@ a {
 .smthWentWrongText {
   margin: 10% 10% 0;
   font-size: 3rem; }
+
+.leaderboardWrapper {
+  text-align: center; }
+
+.leaderboardTitle {
+  text-align: center;
+  font-size: 3rem; }
+  .leaderboardTitle img {
+    margin-left: 30px;
+    height: 50px; }
