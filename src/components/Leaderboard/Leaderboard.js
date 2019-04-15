@@ -108,12 +108,6 @@ class Leaderboard extends Component {
               <img src={restart} alt="restart" />
             </Link>
           </div>
-          <div>
-            <Link to="/leaderboard">
-              <h2>Leaderboard</h2>
-              <img src={leaderboard} alt="leaderboard" />
-            </Link>
-          </div>
         </div>
       </div>
     );
