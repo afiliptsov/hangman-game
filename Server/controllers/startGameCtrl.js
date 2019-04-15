@@ -40,7 +40,6 @@ const startGame = async (req, res) => {
     return (e = "_");
   });
 
-  // req.session.wordScore.removeLife();
 
   //Execute when game starts. Updating initials state of the game. Adding it to the session.
   req.session.wordScore.name = req.body.name;
