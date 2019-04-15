@@ -14,10 +14,6 @@ class Letters extends Component {
       invalidLetters: ""
     };
   }
-  componentDidMount() {
-    console.log("COMPONENT MOUNTS", this.props);
-    console.log("Invalid letters", this.props.wordReducer.invalidLetters);
-  }
 
   clickedLetter = event => {
     // Not allowing user to send same letter twice to a server
@@ -50,9 +46,6 @@ class Letters extends Component {
       backgroundColor: "rgba(153, 255, 153, 0.186)",
       cursor: "not-allowed"
     };
-    {
-      console.log("RENDER", this.props.wordReducer.invalidLetters);
-    }
 
     const letterMap = this.state.letters.map((el, i) => {
       return (
@@ -60,6 +53,7 @@ class Letters extends Component {
           {el.map((singleLet, i) => {
             return (
               <button
+                key={i}
                 className="letterStyle"
                 value={singleLet}
                 style={this.changeKeyboardStyle(

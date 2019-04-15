@@ -13,9 +13,6 @@ let getRandomNumber = (start, end) => {
 };
 
 const startGame = async (req, res) => {
-  console.log(req);
-  console.log("SESSION START", req.session.id);
-  console.log("BODY IS HERE", req.body.difficulty);
   req.session.wordScore = {
     name: "",
     initialWord: "",
@@ -58,8 +55,6 @@ const startGame = async (req, res) => {
   req.session.wordScore.startGameTime = new Date().getTime();
   req.session.wordScore.gameDifficulty = req.body.difficulty;
   req.session.wordScore.wordSize = 0;
-
-  console.log("WORD", req.session.wordScore.initialWord);
 
   res.status(200).json({
     name: req.session.wordScore.name,

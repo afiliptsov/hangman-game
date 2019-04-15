@@ -1,11 +1,9 @@
 import React, { Component } from "react";
-import Hangman from "../Hangman/hangman";
 import { connect } from "react-redux";
-import { HashRouter, Route, Switch, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import * as actionCreator from "../../store/actions/actions";
-import ReactDOM from "react-dom";
 import "rc-slider/assets/index.css";
-import Slider, { Range } from "rc-slider";
+import Slider from "rc-slider";
 
 class Home extends Component {
   constructor() {
@@ -20,7 +18,6 @@ class Home extends Component {
     this.setState({
       userName: e.target.value
     });
-    console.log(this.props);
   };
   submitHandler(e) {
     e.preventDefault();
@@ -30,7 +27,6 @@ class Home extends Component {
     this.setState({
       diff: value / 10
     });
-    console.log(value);
   };
 
   startGame = (name, diff) => {
@@ -40,7 +36,6 @@ class Home extends Component {
   render() {
     return (
       <div className="main-screen-bg">
-        {console.log(this.state.diff)}
         <div className="game-name-title">
           <h2>Hangman</h2>
           <br />

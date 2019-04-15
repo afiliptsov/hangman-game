@@ -5,8 +5,6 @@ import * as actionCreator from "./store/actions/actions";
 
 import wordActions from "./store/reducers/wordReducer";
 
-console.log(wordActions, "wordActions");
-
 class App extends Component {
   componentDidMount() {
     this.props.getLength();

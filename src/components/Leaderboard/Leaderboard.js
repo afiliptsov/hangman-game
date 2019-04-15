@@ -6,7 +6,6 @@ import axios from "axios";
 import medal from "../../assets/other/medal.svg";
 import { Link } from "react-router-dom";
 import restart from "../../assets/other/restart.svg";
-import leaderboard from "../../assets/other/leaderboard.svg";
 
 class Leaderboard extends Component {
   constructor() {
@@ -22,45 +21,13 @@ class Leaderboard extends Component {
 
   getAllUserData = () => {
     axios.get(`/api/getAllScore`).then((req, res) => {
-      console.log(req.data);
       this.setState({
         allScore: req.data
       });
     });
   };
 
-  logScore = () => {
-    console.log(this.state);
-  };
-
   render() {
-    const data = [
-      {
-        name: "Tanner Linsley",
-        age: 26,
-        friend: {
-          name: "Jason Maurer",
-          age: 23
-        }
-      },
-      {
-        name: "Tanner Linsley",
-        age: 29,
-        friend: {
-          name: "Jason Maurer",
-          age: 23
-        }
-      },
-      {
-        name: "Tanner Linsley",
-        age: 26,
-        friend: {
-          name: "Jason Maurer",
-          age: 23
-        }
-      }
-    ];
-
     const columns = [
       {
         Header: "User Name",
@@ -88,7 +55,6 @@ class Leaderboard extends Component {
     return (
       <div className="main-screen-bg">
         <div className="leaderboardWrapper">
-          {console.log(this.state.allScore)}
           <h2 className="leaderboardTitle">
             Leaderboard
             <img src={medal} alt="medal image" />

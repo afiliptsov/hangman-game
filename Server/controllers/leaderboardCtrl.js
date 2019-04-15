@@ -9,7 +9,6 @@ const submitScore = (req, res) => {
       req.session.wordScore.timeToGuess
     ])
     .then(response => {
-      console.log(response);
       res.status(200).json(response);
     })
     .catch(err => console.log(err));
@@ -20,7 +19,6 @@ const getAllScore = (req, res) => {
     .get("db")
     .getAllScore()
     .then(response => {
-      console.log("All Scores", response);
       res.status(200).json(response);
     })
     .catch(err => console.log(err));
@@ -31,7 +29,6 @@ const getScoreByDiffLevel = (req, res) => {
     .get("db")
     .getScoreByDiffLevel(req.params.difficulty)
     .then(response => {
-      console.log("Response from Param", response);
       res.status(200).json(response);
     })
     .catch(err => res.status(500).json(err));

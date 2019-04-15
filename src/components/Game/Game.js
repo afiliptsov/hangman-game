@@ -7,8 +7,6 @@ import * as actionCreator from "../../store/actions/actions";
 import Hangman from "../Hangman/hangman";
 import timer from "../../assets/other/timer.svg";
 import header from "../../assets/other/heart.svg";
-import { throws } from "assert";
-import Page404 from "../Page404/Page404";
 
 class Game extends Component {
   constructor() {
@@ -77,11 +75,6 @@ class Game extends Component {
   }
 
   render() {
-    // Redirect temp disabled
-    // { this.props.wordReducer.live === 0 ? <Redirect to="/summary" /> : null }
-    console.log("PROPS came here", this.props);
-    const { guessedWordArr } = this.props.wordReducer;
-
     const mapOverWord = this.props.wordReducer.guessedWordArr.map(e => {
       return <h2>{e}</h2>;
     });

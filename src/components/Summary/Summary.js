@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import lostFace from "../../assets/hangman-images/lostFace.svg";
 import restart from "../../assets/other/restart.svg";
 import leaderboard from "../../assets/other/leaderboard.svg";
 import star from "../../assets/other/star.svg";
@@ -22,7 +21,6 @@ class Summary extends Component {
       savedScore: !this.state.savedScore
     });
     axios.post("/api/submitScore");
-    console.log(this.state.savedScore);
   };
 
   gameLost = () => {
@@ -58,7 +56,7 @@ class Summary extends Component {
       <div>
         <div className="summary">
           <h2 className="youLost">Congratulations you won !!!</h2>
-          <img src={happyFace} />
+          <img src={happyFace} alt="happy face" />
           {this.state.savedScore === true ? (
             <h2 className="scoreSaved">
               Your score got saved
