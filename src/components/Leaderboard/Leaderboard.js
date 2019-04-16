@@ -44,6 +44,13 @@ class Leaderboard extends Component {
         }
       },
       {
+        Header: "Word",
+        accessor: "secret_word",
+        style: {
+          textAlign: "center"
+        }
+      },
+      {
         Header: "Time",
         accessor: "game_time",
         style: {
