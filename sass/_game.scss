@@ -91,6 +91,26 @@
     margin-left: 5%;
     margin-right: 5%;
   }
+  .live-count {
+    right: 0px;
+    top: 0px;
+    padding: 4px;
+    width: 100px;
+    border-radius: 1px;
+    h2 {
+      font-size: 1.5rem;
+    }
+  }
+  .clock-wrapper {
+    left: 0px;
+    top: 0px;
+    padding: 4px;
+    width: 100px;
+    border-radius: 1px;
+    h2 {
+      font-size: 1.5rem;
+    }
+  }
 }
 @media only screen and (max-width: 585px) {
   .letterWrapper {
