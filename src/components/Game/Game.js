@@ -90,7 +90,7 @@ class Game extends Component {
         <div className="guessedWordWrapper">
           <div className="guessedWordStyle">{mapOverWord}</div>
         </div>
-        {this.gameActivity(this.props.wordReducer.state)})
+        {this.gameActivity(this.props.wordReducer.state)}
       </Fragment>
     );
   }

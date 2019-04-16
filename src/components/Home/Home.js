@@ -73,16 +73,14 @@ class Home extends Component {
         </div>
         <div className="intro-center-button">
           <h1 className="intro-primary" />
-          <Link to="/game">
-            <a
-              href=""
-              onClick={(name, diff) =>
-                this.startGame(this.state.userName, this.state.diff)
-              }
-              className="btn btn-white btn-animated"
-            >
-              Start
-            </a>
+          <Link
+            to="/game"
+            className="btn btn-white btn-animated"
+            onClick={(name, diff) =>
+              this.startGame(this.state.userName, this.state.diff)
+            }
+          >
+            Start
           </Link>
         </div>
       </Fragment>
